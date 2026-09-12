@@ -1,0 +1,9 @@
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/contacts
+
+###
+GET http://localhost:3000/contacts/<paste-one-of-your-mongodb-object-ids-here>
+
+GET http://localhost:3000/contacts/6aa58becde30ebac92ddff61
