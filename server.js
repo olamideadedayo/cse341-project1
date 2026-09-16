@@ -1,4 +1,5 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+
 const express = require('express');
 const app = express();
 const mongodb = require('./db/connect');
@@ -6,9 +7,13 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
-// Use your main router which should handle sub-routes like /contacts
 app.use('/', require('./routes'));
+app.use('/contacts', require('./routes/contacts'));
+
+// Add your routes here later, for example:
+// app.use('/contacts', require('./routes/contacts'));
+
+app.use('/contacts', require('./routes/contacts'));
 
 mongodb.initDb((err) => {
   if (err) {
