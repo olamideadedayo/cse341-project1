@@ -6,6 +6,11 @@ const mongodb = require('./db/connect');
 
 const port = process.env.PORT || 3000;
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.output.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(express.json());
 app.use('/', require('./routes'));
 app.use('/contacts', require('./routes/contacts'));
